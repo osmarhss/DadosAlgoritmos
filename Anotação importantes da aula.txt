@@ -1,0 +1,86 @@
+O que é Branch?
+
+São separações de código,com elas,é possivel que varias pessoas atuem em um mesmo projeto independentemente.
+
+Tipos de Branch
+
+-Develop:Ambiente para uso em tempo de desenvolvimento
+
+    Depois de testar o que desenvolvemos em nossa máquina
+                      (AMBIENTE LOCAL)
+          O código é disponibilidado nesse ambiente
+
+-Homolog: Após as alterações serem validadas em ambiente de desenvolvimento, o código vai para a
+ branch/ ambiente de homologação.
+
+Onde pessoas de negocio podem validar a solução e pessoas da área de qualidade efetuam mais testes para validar a solução.
+ 
+-Master:Branch principal do nosso projeto,Geralmente os códigos contido nela são os que vão para produção.
+
+             EX: PRODUÇÃO DE UM SITE QUE É DISPONIBILIZADO PARA O PÚBLICO
+
+O que é Merge?
+		
+O merge consiste em unir duas branches.
+
+Geralmente realizamos o merge para juntar alterações de duas branchs em que duas pessoas estava atuando simultaneamente.
+
+
+O que é clone ?
+
+Podemos transferir o repositório que está no git hub para nossa máquia local através de um clone.
+
+Dessa forma você tera acesso ao seu repositório localmente,podendo realizar as alterção e envia-las para o 
+GitHub quando desejar.
+
+O que pull?
+
+Com  comando git pull e feita a atualização do nosso repositório local.
+
+  É realizado um merge entre o repositório online (git hub) com o que temos
+  localmente,dessa forma evitamos conflitos,estaremos com contéudos sempre 
+  atualizado.
+
+                               ATUALIZA O REPOSITÓRIO 
+
+O que é um push?
+
+Podemos enviar nossas alterações locais para o nosso repositório remoto.
+
+                               ENVIA PARA O REPOSITÓRIO
+O que é fork?
+
+O repositório não será baixado para o seu computado,mas você terá uma cópia dele na sua conta do Git Hub.
+
+Depois de dar  um fork em um repositório de outra pessoa,você pode fazer pull-requests para contribuir com o contéudo 
+no repositório principal.
+
+O que pull-requests?
+
+Após de utilizar  o 'fork' de outra pessoa, podemos resolver issues (tarefas) dele e fazer um pull requests enviando soluções 
+para erros e adicionado novos contéudos.
+
+
+A pessoa do na do repositório riá avaliar a sua pull request e se tiver tudo OK sua merger é aprovado no repositório principal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

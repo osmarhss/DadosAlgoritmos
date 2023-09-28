@@ -1,0 +1,82 @@
+Exercício 01
+
+Instalar o Git e criar conta no GitHub.
+Configurar e criar repositório.
+
+Comandos Básicos ensinados na aula
+
+Resumo
+----------------------------------------------------------------------------------------------------------------
+Comandos Básicos
+----------------------------------------------------------------------------------------------------------------
+git init //Inicia um repositório e começa a observar as alterações do projeto.
+git add . //Realiza adições na staging area.
+git commit -m 'mensagem' //Cria uma versão.
+git remote add origin <url do repositório remoto> //Associar o repositório local ao
+repositório remoto.
+git push -u origin main //Realizar envio do repositório local para o repositório remoto.
+git branch //Lista o nome do branch.
+git branch -m <nome-antigo> <novo-nome> //Renomeia o branch.
+git checkout –b <nova branch> //Sai da branch corrente e entra na nova branch. Se a nova
+branch não existir, ela é criada.
+----------------------------------------------------------------------------------------------------------------
+Comandos Básicos de Configuração
+----------------------------------------------------------------------------------------------------------------
+git –version //Versão instalada do Git.
+git -v //Versão instalada do Git.
+git config --system user.name "nome-do-usuário" //Nome do usuário (nível: sistema,
+todos os usuários).
+git config --global user.name "nome-do-usuário" //Nome do usuário (nível: usuário
+corrente)
+git config user.name "nome-do-usuário" //Nome do usuário (nível: projeto corrente)
+git config --system user.email "email-do-usuário" // E-mail do usuário (nível: sistema,
+todos os usuários).
+git config --global user.email "email-do-usuário" // E-mail do usuário (nível: usuário
+corrente)
+git config user.email "email-do-usuário" //E-mail do usuário (nível: projeto corrente)
+git config --system core.editor "editor" // E-mail do usuário (nível: sistema, todos os
+usuários).
+git config --global core.editor "editor" // E-mail do usuário (nível: usuário corrente)
+git config core.editor "editor" //E-mail do usuário (nível: projeto corrente)
+git config user.name //Lista o nome do usuário.
+git config user.email //Lista o e-mail do usuário.
+git config core.editor //Lista o editor.
+git config –list //Lista as configurações.
+----------------------------------------------------------------------------------------------------------------
+Comandos Principais
+----------------------------------------------------------------------------------------------------------------
+git --version //Reportar a versão do sistema.
+git config //Configurar o sistema.
+git init //Inicia um repositório e começa a observar as alterações do projeto.
+git status //Reportar o estado do repositório.
+git add . //Realiza adições na staging area.
+git commit -m 'mensagem' //Cria uma versão.
+git log //Histórico dos commits realizados.
+git shortlog //Histórico resumido dos commits realizados.
+git show <id do commit> //Apresenta informação sobre um commit.
+git diff //Exibe diferenças entre alterações.
+git remote add origin <url do repositório remoto> //Associar o repositório local ao
+repositório remoto.
+git remote //Listar a associação criada.
+git remote –v //Listar detalhes sobre a associação criada.
+git push origin main //Realizar envio do repositório local para o repositório remoto.
+git push -u origin main //Realizar envio do repositório local para o repositório remoto.
+-u: para não ter que informar “origin” e “main” nas próximas vezes que o repositório local tiver
+que ser enviado para o repositório remoto.
+origin: repositório remoto.
+main: para enviar do “branch” “main” local, para o “branch” “main” remoto. Se o “branch”
+“main” remoto não existir, ele é criado. Equivale a:
+git push -u origin main:main
+Que significa:
+git push -u origin <branch local>:<branch remoto>
+git push //Enviar do repositório local para o repositório remoto.
+git branch //Lista o nome do branch.
+git branch -m <nome-antigo> <novo-nome> //Renomeia o branch.
+git checkout –b <nova branch> //Sai da branch corrente e entra na nova branch. Se a nova
+branch não existir, ela é criada.
+git fetch origin //Buscar o repositório remoto para o repositório local, sem realizar o “merge”
+dos “branchs”.
+git pull //Realiza o “merge” dos “branchs”.
+git pull origin //Buscar o repositório remoto para o repositório local, realizando o “merge” dos
+“branchs”.
+git remote set-url origin <nova_url> //Substitui a URL do repositório remoto.

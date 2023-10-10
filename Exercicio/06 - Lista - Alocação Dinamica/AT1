@@ -1,0 +1,5 @@
+//1. Escreva um algoritmo que aliste os alunos matriculados em um curso na ordem ascendente dos
+nomes. Crie um procedimento para comparar os elementos na função PesquisarLista(), um
+procedimento para cadastrar os alunos e outro para imprimir a lista de alunos cadastrados. A
+estrutura aluno deve possuir o código e nome dos alunos.//
+

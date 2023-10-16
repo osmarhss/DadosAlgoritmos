@@ -1,1 +1,8 @@
+1) Escreva um algoritmo que possua uma função recursiva para cálculo de potência. O usuário
+deve informar a base e o expoente a partir do teclado. A base e o expoente devem ser
+números inteiros. Não utilize a biblioteca math.h ou qualquer outro recurso pronto.
 
+2) Crie uma função recursiva chamada somaNaturais que calcule a soma dos primeiros n
+números naturais. O usuário deve fornecer o valor de n. Exemplo: se o usuário fornecer o
+valor n = 5, a função deve calcular e retornar a soma dos números de 1 a 5 (ou seja: 1 + 2 +
+3 + 4 + 5 = 15).

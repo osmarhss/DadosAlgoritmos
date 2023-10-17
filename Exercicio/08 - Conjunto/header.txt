@@ -1,1 +1,11 @@
 
+1. O TAD Conjunto pode ser implementado em um vetor (alocação sequencial). Modifique a
+biblioteca lista.h (ou fila.h, ou lista.h) com implementação em vetor, para implementar as
+principais operações de um TAD Conjunto listadas acima. Crie também uma operação que
+permita atualizar um elemento no Conjunto, assegurando a inexistência de elementos
+duplicados.
+2. O TAD Conjunto pode ser implementado com alocação dinâmica de memória (alocação
+encadeada). Modifique a biblioteca lista.h (ou fila.h, ou lista.h) com alocação dinâmica de
+memória, para implementar as principais operações de um TAD Conjunto listadas acima. Crie
+também uma operação que permita atualizar um elemento no Conjunto, assegurando a
+inexistência de elementos duplicados.

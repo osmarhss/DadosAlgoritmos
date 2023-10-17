@@ -1,0 +1,7 @@
+Vantagens: Alto Desempenho na inclusão e remoção de elementos.
+Referencias em ambos os sentidos, ao percorrer uma lista você pode avançar e retornar pelos objetos.
+
+Desvantagens: para inserir ou remover um elemento no meio de uma listagem você tem que chegar no local específico desse elemento, percorrendo toda a listagem até aquela posição.
+o que pode fazer o processo ser lento. 
+
+

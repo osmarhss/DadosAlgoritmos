@@ -21,7 +21,6 @@ while(PilhaCheia(&p) == FALSO) {
 printf("\nInforme os dados da %dº pessoa: \n", numero_pessoa);
 printf("informe o CPF(no formato do cpf mesmo):");
 scanf("%s", pe.cpf);
-printf("%d", formato_cpf_valido(pe.cpf));
 while (formato_cpf_valido(pe.cpf) == FALSO)
 {
     printf("\nCPF invalido!!\n");
@@ -54,8 +53,8 @@ printf("\ninforme o departamento:");
 scanf("%s", pe.departamento);
 printf("\ninforme o cargo:");
 scanf("%s", pe.cargo);
-printf("\ninforme o o salario:");
-scanf("%f\n", &pe.salario);
+printf("\ninforme o salario:");
+scanf("%s\n", pe.salario);
 Empilhar(&p, pe);
 numero_pessoa++;
 }

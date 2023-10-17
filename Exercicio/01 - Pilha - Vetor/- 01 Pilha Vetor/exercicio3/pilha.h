@@ -15,7 +15,7 @@ struct Pessoa {
     char data_de_admisao[50];
     char departamento[50];
     char cargo[50];
-    float salario;
+    char salario[50];
 };
 typedef struct Pessoa pessoa;
 struct tipo_pilha {

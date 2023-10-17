@@ -1,1 +1,37 @@
+1. Modifique a biblioteca “lista.h”, para que o procedimento CriaLista() inicie os campos “inicio”
+e “fim” com o valor -1. A alteração deverá ser refletida nas demais funções e procedimentos
+da biblioteca. Inclua na biblioteca o procedimento ImprimeLista(), para imprimir o conteúdo
+da lista.
 
+2. Modifique o algoritmo apresentado, para que ele leia uma seqüência de 10 números reais a
+partir do teclado e os enfileire. O programa deve possuir:
+a. Um procedimento que desaliste os elementos e os grave em um arquivo no modo
+texto.
+b. Um procedimento que leia os elementos a partir do arquivo no modo texto e os aliste.
+c. Um procedimento para imprimir o conteúdo da lista na tela.
+
+3. Modifique o algoritmo apresentado, para que ele cadastre uma sequência de 10 registros do
+tipo “funcionário” cujos campos são: CPF, nome, endereço, telefone, celular, data de
+nascimento e de admissão, departamento, cargo e salário. As datas devem estar no formato
+“dd/mm/aaaa”. O algoritmo deve possuir:
+a. Um procedimento que leia os registros a partir do teclado e os aliste.
+b. Um procedimento que desaliste os elementos e os grave em um arquivo no modo
+binário.
+c. Um procedimento que leia os registros a partir do arquivo no modo binário e os aliste.
+d. Uma função que permita pesquisar os funcionários por CPF. O algoritmo deve ler o
+CPF a ser pesquisado a partir do teclado.
+
+4. Escreva um algoritmo para uma farmácia que deseja cadastrar os produtos que vende. Para
+cada produto é necessário armazenar: o nome do produto, o valor unitário e a quantidade em
+estoque. Cada produto informado no sistema deve ser inserido numa lista. O algoritmo deve
+solicitar o nome de um produto e pesquisar o produto na lista. Se o produto for encontrado, o
+algoritmo deve apresentar os dados do produto na tela e perguntar ao usuário se o produto
+deve ser excluído. Caso o usuário decida retirar o produto da lista, exclua-o e informe que a
+exclusão foi realizada com sucesso. Se o produto não for encontrado na lista, apresente a
+mensagem: “Produto não cadastrado!”. O algoritmo deve permitir que a lista seja gravada e
+lida a partir de um arquivo no modo binário.
+5. Escreva um algoritmo que leia uma sequência de 10 inteiros a partir do teclado e os insira
+numa lista. O algoritmo deve receber também a partir do teclado o número de uma posição
+da lista, retirar o elemento da lista que se encontra nessa posição e apresentar o elemento na
+tela. O algoritmo deve permitir a retirada de novos elementos até que a lista fique fazia ou
+que o usuário digite um código informando que deseja encerrar a execução.

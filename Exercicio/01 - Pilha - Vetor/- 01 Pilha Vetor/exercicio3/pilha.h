@@ -5,8 +5,21 @@
 */
 #define VERDADEIRO 1
 #define FALSO 0
+struct Pessoa {
+    char cpf[50];
+    char nome[50];
+    char endereco[50];
+    char telefone[50];
+    char celular[50];
+    char data_de_nascimento[50];
+    char data_de_admisao[50];
+    char departamento[50];
+    char cargo[50];
+    float salario;
+};
+typedef struct Pessoa pessoa;
 struct tipo_pilha {
-elemento vet[TAM];
+pessoa vet[TAM];
 int topo;
 };
 typedef struct tipo_pilha pilha;
@@ -22,38 +35,45 @@ return(p->topo == 0);
 int PilhaCheia(pilha *p) {
 return(p->topo == TAM);
 }
-//Insere um elemento na pilha.
-void Empilhar(pilha *p, elemento e) {
+//Insere um pessoa na pilha.
+void Empilhar(pilha *p, pessoa e) {
 p->vet[p->topo] = e;
 p->topo++;
 }
-//Retira um elemento na pilha.
-elemento Desempilhar(pilha *p) {
+//Retira um pessoa na pilha.
+pessoa Desempilhar(pilha *p) {
 p->topo--;
 return p->vet[p->topo];
 }
 
-void SalvarPilhaEmArquivo(const char *nomeArquivo, pilha *p) {
-    FILE *arquivo = fopen(nomeArquivo, "wb");
-    if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo para escrita.\n");
-        return;
+void empilharArquivo(pilha *p, char nome_arquivo[50]) {
+    int quantidade;
+    FILE *arq;
+
+    if ((arq = fopen (nome_arquivo, "wb")) == NULL) {
+        printf ("\n Erro ao abrir o arquivo arquivoC.dat.");
+        system ("pause");
+        exit (1);
     }
 
-    fwrite(p, sizeof(pilha), 1, arquivo);
-    fclose(arquivo);
-    while(PilhaVazia(&p) == FALSO) {
-        num = Desempilhar(&p);
-    }
+    quantidade = fwrite (&p, sizeof (pessoa), TAM, arq);
+    printf ("Quantidade de itens gravados: %d.\n",
+    quantidade);
+    fclose (arq);
 }
 
-void LerPilhaDeArquivo(const char *nomeArquivo, pilha *p) {
-    FILE *arquivo = fopen(nomeArquivo, "rb");
-    if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo para leitura.\n");
-        return;
+void desempilharArquivo(pilha *p, char nome_arquivo[50]) {
+    int quantidade;
+    FILE *arq;
+    printf("wgwhiuhrieuhbiuebiueb");
+    if ((arq = fopen (nome_arquivo, "rb")) == NULL) {
+        printf ("\n Erro ao abrir o arquivo arquivoC.dat.");
+        system ("pause");
+        exit (1);
     }
 
-    fread(p, sizeof(pilha), 1, arquivo);
-    fclose(arquivo);
+    quantidade = fread (&p, sizeof (pessoa), TAM, arq);
+
+    printf ("Quantidade de itens lidos: %d.\n", quantidade);
+    fclose (arq);
 }

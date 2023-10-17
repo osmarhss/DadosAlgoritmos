@@ -4,41 +4,43 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
-#define TAM 10
-typedef char elemento;
+#define TAM 1
 #include "pilha.h"
 int main() {
-char num[50];
 pilha p;
-char dados[TAM][50] = {
-        "CPF",
-        "Nome",
-        "Endereço",
-        "Telefone",
-        "Celular",
-        "Data de Nascimento",
-        "Data de Admissão",
-        "Departamento",
-        "Cargo",
-        "Salário"
-    };
+pessoa pe;
 CriarPilha(&p);
-int dado = 0;
 while(PilhaCheia(&p) == FALSO) {
-        printf("\nInforme o %s: ", dados[dado]);
-        dado++;
-        scanf("%s", num);
-        Empilhar(&p, &num);
-        printf("%d", dado);
-    }
-    SalvarPilhaEmArquivo("pilha.bin", &p);
-    LerPilhaDeArquivo("pilha.bin", &p);
-    // desempilhaArquivo(p);
-// printf("\nNumeros informados: ");
-// while(PilhaVazia(&p) == FALSO) {
-// num = Desempilhar(&p);
-// printf("\n%d", num);
-// }
+printf("\nInforme um numero inteiro: ");
+scanf("%s", pe.cpf);
+scanf("%s", pe.nome);
+scanf("%s", pe.endereco);
+scanf("%s", pe.telefone);
+scanf("%s", pe.celular);
+scanf("%s", pe.data_de_nascimento);
+scanf("%s", pe.data_de_admisao);
+scanf("%s", pe.departamento);
+scanf("%s", pe.cargo);
+scanf("%f", &pe.salario);
+Empilhar(&p, pe);
+}
+empilharArquivo(&p, "arquivoC.dat");
+printf("testando o test");
+desempilharArquivo(&p, "arquivoC.dat");
+printf("\ndados informados: ");
+while(PilhaVazia(&p) == FALSO) {
+pe = Desempilhar(&p);
+printf("\n%s", pe.cpf);
+printf("\n%s", pe.nome);
+printf("\n%s", pe.endereco);
+printf("\n%s", pe.telefone);
+printf("\n%s", pe.celular);
+printf("\n%s", pe.data_de_nascimento);
+printf("\n%s", pe.data_de_admisao);
+printf("\n%s", pe.departamento);
+printf("\n%s", pe.cargo);
+printf("\n%f", pe.salario);
+}
 printf("\n");
 system("pause");
 return 0;

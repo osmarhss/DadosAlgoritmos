@@ -8,7 +8,7 @@ int main() {
     CriarLista(&l);
 
     //Inserir produtos
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 10; i++) {
         struct tipo_produto p;
         printf("Insira os dados do produto %d:\n", i + 1);
         printf("Nome: ");
@@ -21,13 +21,13 @@ int main() {
     }
 
     //Grava a lista em um arquivo
-    GravarLista(&l, "produtos.bin");
+    GravarLista(&l, "produtos.dat");
 
     //Limpa a lista para simular a leitura
     CriarLista(&l);
 
     //Lê a lista de produtos do arquivo
-    LerLista(&l, "produtos.bin");
+    LerLista(&l, "produtos.dat");
 
     //Imprime a lista
     printf("\nImprimindo a lista de produtos:\n");

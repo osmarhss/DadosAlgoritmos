@@ -123,23 +123,5 @@ void ArquivoPLista(lista *l, const char *nomeArquivo) {
     fclose(arquivo);
 }
 
-
-//Pesquisa um funcionário por CPF.
-void PesquisarPorCPF(lista *l) {
-long CPF;
-    printf("Digite o CPF a ser pesquisado: ");
-    scanf("%lld", &CPF);
-    int encontrado = 0;
-    for (int i = l->inicio; i <= l->fim; i++) {
-        if (l->vet[i].CPF == CPF) {
-            printf("Funcionário encontrado:\n");
-            printf("CPF: %lld, Nome: %s, Endereço: %s, Telefone: %lld, Celular: %lld, Data de Nascimento: %s, Data de Admissão: %s, Departamento: %s, Cargo: %s, Salário: %.2f\n",
-                l->vet[i].CPF, l->vet[i].nome, l->vet[i].endereco, l->vet[i].telefone, l->vet[i].celular, l->vet[i].data_nascimento, l->vet[i].data_admissao, l->vet[i].departamento, l->vet[i].cargo, l->vet[i].salario);
-            encontrado = 1;
-            break;
-        }
-    }
-    if (!encontrado) {
-        printf("Funcionário não encontrado.\n");
-    }
-}
+//Pesquisa por CPF.
+void PesquisarPorCPF(lista *l, long long cpf);

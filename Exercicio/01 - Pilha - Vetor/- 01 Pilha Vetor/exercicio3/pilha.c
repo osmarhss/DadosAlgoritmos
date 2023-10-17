@@ -7,7 +7,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define TAM 1
+#define TAM 2
 
 #include "pilha.h"
 
@@ -63,7 +63,7 @@ empilharArquivo(&p, "arquivoC.dat");
 desempilharArquivo(&p, "arquivoC.dat");
 pesquisaCPF(&p);
 printf("\n\n\ndados informados: ");
-numero_pessoa = 1;
+numero_pessoa--;
 while(PilhaVazia(&p) == FALSO) {
 printf("\nPessoa %d:", numero_pessoa);
 pe = Desempilhar(&p);
@@ -87,7 +87,7 @@ printf("\n\ncargo:");
 printf("\n%s", pe.cargo);
 printf("\n\nsalario:");
 printf("\n%f", pe.salario);
-numero_pessoa++
+numero_pessoa--;
 }
 printf("\n");
 system("pause");

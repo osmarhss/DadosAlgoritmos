@@ -1,0 +1,16 @@
+/*2) Uma fábrica produz 3 categorias diferentes de
+produtos. Os produtos de cada categoria precisam
+ser armazenados em árvores binárias de pesquisa
+diferentes. As árvores de cada categoria precisam
+estar conectadas pelas raízes, formando uma
+floresta de árvores binárias de pesquisa.
+Implemente um algoritmo que permita inserir,
+
+pesquisar, excluir e realizar os caminhamentos pré-
+ordem, em-ordem e pós-ordem na floresta de
+
+árvores binárias de pesquisa. O algoritmo também
+deve permitir que árvores de novas categorias de
+produtos possam ser inseridas na floresta no futuro.
+Crie a biblioteca Floresta.h
+Exemplo:*/

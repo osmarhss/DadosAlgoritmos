@@ -1,7 +1,7 @@
 #ifndef ARVORE_BINARIA_DE_PESQUISA_H
 #define ARVORE_BINARIA_DE_PESQUISA_H
 
-typedef int TipoChave;
+typedef int TipoChave; 
 
 typedef struct {
     TipoChave Chave;
@@ -14,15 +14,22 @@ typedef struct Nodo_str {
     Apontador Esq, Dir;
 } Nodo;
 
-typedef Apontador TipoDicionário;
+typedef Apontador TipoDicionario;
 
-void Inicia(TipoDicionário *Dicionário);
+void Inicia(TipoDicionario *Dicionario);
+
 void Insere(Registro x, Apontador *p);
+
 void Pesquisa(Registro *x, Apontador p);
+
 void Central(Apontador p);
+
 void PreOrdem(Apontador p);
+
 void PosOrdem(Apontador p);
+
 void Retira(Registro x, Apontador *p);
+
 void Antecessor(Apontador q, Apontador *r);
 
-#endif /* ARVORE_BINARIA_DE_PESQUISA_H */
+#endif

@@ -2,11 +2,16 @@
 #include <stdlib.h>
 #include "ArvoreBinariaDePesquisa.h"
 
-void Inicia(TipoDicionário *Dicionário) {
-    *Dicionário = NULL;
+void Inicia(TipoDicionario *Dicionario) {
+    *Dicionario = NULL;
 }
 
 void Insere(Registro x, Apontador *p) {
+    if (x.Chave == 0) {
+        printf("Insercao finalizada.\n");
+        return;
+    }
+
     if (*p == NULL) {
         *p = (Apontador)malloc(sizeof(Nodo));
         (*p)->Reg = x;
@@ -14,16 +19,18 @@ void Insere(Registro x, Apontador *p) {
         (*p)->Dir = NULL;
         return;
     }
+
     if (x.Chave < (*p)->Reg.Chave) {
         Insere(x, &(*p)->Esq);
         return;
     }
+
     if (x.Chave > (*p)->Reg.Chave) {
         Insere(x, &(*p)->Dir);
         return;
-    } else {
-        printf("Registro existente na árvore\n");
     }
+
+    printf("Registro existente na árvore.\n");
 }
 
 void Pesquisa(Registro *x, Apontador p) {
@@ -31,16 +38,19 @@ void Pesquisa(Registro *x, Apontador p) {
         printf("Erro: Registro não está na árvore\n");
         return;
     }
+
     if (x->Chave < p->Reg.Chave) {
         Pesquisa(x, p->Esq);
-    } else if (x->Chave > p->Reg.Chave) {
-        Pesquisa(x, p->Dir);
-    } else {
-        *x = p->Reg; // Atribuir diretamente o registro encontrado para x
         return;
     }
-}
 
+    if (x->Chave > p->Reg.Chave) {
+        Pesquisa(x, p->Dir);
+        return;
+    }
+
+    *x = p->Reg;
+}
 
 void Central(Apontador p) {
     if (p != NULL) {
@@ -67,87 +77,104 @@ void PosOrdem(Apontador p) {
 }
 
 void Retira(Registro x, Apontador *p) {
+    Apontador Aux;
+
+    if (*p == NULL) {
+        printf("Erro: Registro não está na árvore\n");
+        return;
+    }
+
+    if (x.Chave < (*p)->Reg.Chave) {
+        Retira(x, &(*p)->Esq);
+        return;
+    }
+
+    if (x.Chave > (*p)->Reg.Chave) {
+        Retira(x, &(*p)->Dir);
+        return;
+    }
+
+    if ((*p)->Dir != NULL && (*p)->Esq != NULL) {
+        Antecessor(*p, &(*p)->Esq);
+        return;
+    }
+
+    Aux = *p;
+    if ((*p)->Dir == NULL) {
+        *p = (*p)->Esq;
+    } else {
+        *p = (*p)->Dir;
+    }
+    free(Aux);
 }
 
+
 void Antecessor(Apontador q, Apontador *r) {
+    if ((*r)->Dir != NULL) {
+        Antecessor(q, &(*r)->Dir);
+        return;
+    }
+
+    q->Reg = (*r)->Reg;
+    Antecessor(*r, &(*r)->Esq);
 }
 
 int main() {
-    Registro x;''
-    TipoDicionário Dicionário;
-    Inicia(&Dicionário);
+    Registro x;
+    TipoDicionario Dicionario;
+    Inicia(&Dicionario);
 
     printf("Informe a chave: ");
     scanf("%d", &x.Chave);
 
     while (x.Chave > 0) {
-        Insere(x, &Dicionário);
+        Insere(x, &Dicionario);
         printf("Informe a chave: ");
         scanf("%d", &x.Chave);
     }
 
-    // Teste da função de pesquisa
-    printf("Pesquisar por chave: ");
+    printf("Realizando Pesquisa:\n");
+    printf("Informe a chave para pesquisa: ");
     scanf("%d", &x.Chave);
-    Registro resultadoPesquisa;
-    Pesquisa(&resultadoPesquisa, Dicionário);
-    printf("Resultado da pesquisa:%d\n", resultadoPesquisa.Chave);
+    Pesquisa(&x, Dicionario);
 
-    // Teste da função Central
-    printf("Impressão em ordem central:\n");
-    Central(Dicionário);
+    printf("Realizando Caminhamentos:\n");
+    printf("Caminhamento Central:\n");
+    Central(Dicionario);
 
-    // Teste da função PreOrdem
-    printf("Impressão em pré-ordem:\n");
-    PreOrdem(Dicionário);
+    printf("Caminhamento Pre-Ordem:\n");
+    PreOrdem(Dicionario);
 
-    // Teste da função PosOrdem
-    printf("Impressão em pós-ordem:\n");
-    PosOrdem(Dicionário);
+    printf("Caminhamento Pos-Ordem:\n");
+    PosOrdem(Dicionario);
 
-    // Teste da função Retira
-    void Retira(Registro x, Apontador *p) {
-    Apontador Aux;
-    if (*p == NULL) {
-        printf("Erro: Registro não está na árvore\n");
-        return;
-    }
-    if (x.Chave < (*p)->Reg.Chave) {
-        Retira(x, &(*p)->Esq);
-        return;
-    }
-    if (x.Chave > (*p)->Reg.Chave) {
-        Retira(x, &(*p)->Dir);
-        return;
-    }
-    if ((*p)->Dir == NULL) { // Se não tiver filho à direita
-        Aux = *p;
-        *p = (*p)->Esq;
-        free(Aux);
-        return;
-    }
-    if ((*p)->Esq == NULL) { // Se não tiver filho à esquerda
-        Aux = *p;
-        *p = (*p)->Dir;
-        free(Aux);
-        return;
-    }
-    // Se tiver dois filhos
-    Antecessor(*p, &(*p)->Esq);
-}
-
-    // Teste da função Antecessor
+    printf("Removendo elementos:\n");
+    printf("Informe a chave para remoção: ");
+    scanf("%d", &x.Chave);
+    Retira(x, &Dicionario);
     
-    void Antecessor(Apontador q, Apontador *r) {
-    if ((*r)->Dir != NULL) {
-        Antecessor(q, &(*r)->Dir);
-        return;
+    printf("Realizando novamente a Pesquisa:\n");
+    printf("Informe a chave para pesquisa: ");
+    scanf("%d", &x.Chave);
+    Pesquisa(&x, Dicionario);
+    
+    Registro elementoRemover;
+    printf("Removendo elementos:\n");
+    while (1) {
+        printf("Informe a chave para remoção (digite 0 para encerrar): ");
+        scanf("%d", &elementoRemover.Chave);
+        
+        if (elementoRemover.Chave == 0) {
+            printf("Remoção finalizada.\n");
+            break;
+        }
+        Retira(elementoRemover, &Dicionario);
+        // Para verificar se o elemento foi removido corretamente
+        printf("Caminhamento Central após remoção:\n");
+        Central(Dicionario);
+        printf("\n");
     }
-    q->Reg = (*r)->Reg;
-    q = *r;
-    *r = (*r)->Esq;
-    free(q);
-}
 
+    
     return 0;
 }

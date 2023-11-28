@@ -134,3 +134,32 @@ int calcularProfundidadeNoNaArvore(struct TreeNode* arvore, int valorNo) {
         return 1;
     }
 }
+
+// Função para calcular o nível de um nó em relação à raiz da árvore
+int calcularNivelNoNaArvore(struct TreeNode* arvore, int valorNo) {
+    if (arvore == NULL) {
+        return 0; // Se a árvore estiver vazia, o nível é 0
+    }
+
+    if (valorNo < arvore->data) {
+        return 1 + calcularNivelNoNaArvore(arvore->left, valorNo);
+    } else if (valorNo > arvore->data) {
+        return 1 + calcularNivelNoNaArvore(arvore->right, valorNo);
+    } else {
+        // Encontrou o nó desejado, o nível é 1
+        return 1;
+    }
+}
+
+// Função para calcular o grau máximo de uma árvore binária
+int calcularGrauMaximo(struct TreeNode* arvore) {
+    if (arvore == NULL) {
+        return 0; // Se a árvore estiver vazia, o grau máximo é 0
+    }
+
+    int grauEsquerda = calcularGrauMaximo(arvore->left);
+    int grauDireita = calcularGrauMaximo(arvore->right);
+
+    // O grau máximo da árvore é o maior grau entre a subárvore esquerda e direita
+    return grauEsquerda > grauDireita ? grauEsquerda : grauDireita;
+}

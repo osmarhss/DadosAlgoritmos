@@ -1,5 +1,5 @@
 #include <stdbool.h>
-#define alturaInicial 0
+#include <stddef.h>
 
 // Definindo a estrutura de um nó da árvore
 struct TreeNode {
@@ -55,37 +55,82 @@ struct TreeNode* removerNo(struct TreeNode* arvore, int value){
     return arvore;
 }
 
-// // função para pesquisar nó na arvore
-// bool pesquisaElementoExiste(struct TreeNode* arvore, int value){
-//     if (arvore->data == value) {
-//         return true;
-//     }
+// função para pesquisar nó na arvore
+bool pesquisaElementoExiste(struct TreeNode* arvore, int value){
+    if (arvore->data == value) {
+        return true;
+    }
 
-//     if (value < arvore->data) {
-//         return arvore->left = pesquisaElementoExiste(arvore->left, value);
-//     } else if (value > arvore->data) {
-//         return arvore->right = pesquisaElementoExiste(arvore->right, value);
-//     }
-//     return false;
-// }
+    if (value < arvore->data) {
+        if (!arvore->left == NULL)
+        {
+        return pesquisaElementoExiste(arvore->left, value);
+        }
+        
+    } else if (value > arvore->data) {
+        if (!arvore->right == NULL)
+        {
+        return pesquisaElementoExiste(arvore->right, value);
+        }
+        
+    }
+    return false;
+}
 
-// int alturaArvore(struct TreeNode* arvore){
-//     int listaDeAlturas[100];
-//     int valorInicialAltura = 0;
-//     funcaoAlturaArvore(arvore, valorInicialAltura, listaDeAlturas);
-// }
+// Função para calcular a altura de uma árvore binária
+int calcularAlturaArvore(struct TreeNode* arvore) {
+    if (arvore == NULL) {
+        return 0;
+    } else {
+        int alturaEsquerda = calcularAlturaArvore(arvore->left);
+        int alturaDireita = calcularAlturaArvore(arvore->right);
 
-// // função para ver alturar da arvore
-// struct TreeNode* funcaoAlturaArvore(struct TreeNode* arvore, int altura, int lista[1]){
-//     if (arvore == NULL) {
-//         return true;
-//     }
+        // A altura da árvore é a altura do caminho mais longo mais 1
+        return 1 + (alturaEsquerda > alturaDireita ? alturaEsquerda : alturaDireita);
+    }
+}
 
-//     if (value < arvore->data) {
-//         return arvore->left = funcaoAlturaArvore(arvore->left, value);
-//     } else if (value > arvore->data) {
-//         return arvore->right = funcaoAlturaArvore(arvore->right, value);
-//     }
-//     return false;
-// }
+// Função para calcular a altura de um nó específico na árvore
+int calcularAlturaNoNaArvore(struct TreeNode* arvore, int valorNo) {
+    if (arvore == NULL) {
+        return 0; // Se a árvore estiver vazia, a altura é 0
+    }
 
+    if (valorNo < arvore->data) {
+        return calcularAlturaNoNaArvore(arvore->left, valorNo) + 1;
+    } else if (valorNo > arvore->data) {
+        return calcularAlturaNoNaArvore(arvore->right, valorNo) + 1;
+    } else {
+        // Encontrou o nó desejado, a altura é 1
+        return 1;
+    }
+}
+
+// Função para calcular a altura de uma árvore binária
+int calcularProfundidadeArvore(struct TreeNode* arvore) {
+    if (arvore == NULL) {
+        return 0;
+    } else {
+        int alturaEsquerda = calcularAlturaArvore(arvore->left);
+        int alturaDireita = calcularAlturaArvore(arvore->right);
+
+        // A altura da árvore é a altura do caminho mais longo mais 1
+        return 1 + (alturaEsquerda > alturaDireita ? alturaEsquerda : alturaDireita);
+    }
+}
+
+// Função para calcular a altura de um nó específico na árvore
+int calcularProfundidadeNoNaArvore(struct TreeNode* arvore, int valorNo) {
+    if (arvore == NULL) {
+        return 0; // Se a árvore estiver vazia, a altura é 0
+    }
+
+    if (valorNo < arvore->data) {
+        return calcularAlturaNoNaArvore(arvore->left, valorNo) + 1;
+    } else if (valorNo > arvore->data) {
+        return calcularAlturaNoNaArvore(arvore->right, valorNo) + 1;
+    } else {
+        // Encontrou o nó desejado, a altura é 1
+        return 1;
+    }
+}

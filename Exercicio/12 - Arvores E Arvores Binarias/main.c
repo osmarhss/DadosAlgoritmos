@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include <stdbool.h>
 #include "funcoes.h"
 
@@ -17,14 +18,35 @@ int main() {
 
     printf("o no raiz tem o valor: %d \n", arvore->data);
 
-    arvore = removerNo(arvore, 10);
-
-    // Verificar se a árvore está vazia
-    if (verificarArvoreVazia(arvore)) {
-        printf("A árvore está vazia.\n");
+    bool n = false;
+    n = pesquisaElementoExiste(arvore, 15);
+    if (n)
+    {
+        printf("tem!!\n");
     } else {
-        printf("A árvore não está vazia.\n");
+        printf("nao tem\n");
     }
+
+    int altura = calcularAlturaArvore(arvore);
+    printf("%d\n", altura);
+
+    int alturaNo = calcularAlturaNoNaArvore(arvore, 5);
+    printf("%d\n", alturaNo);
+
+    int profundidade = calcularProfundidadeArvore(arvore);
+    printf("%d\n", profundidade);
+
+    int profundidadeNo = calcularProfundidadeNoNaArvore(arvore, 5);
+    printf("%d\n", profundidadeNo);
+
+    // arvore = removerNo(arvore, 10);
+
+    // // Verificar se a árvore está vazia
+    // if (verificarArvoreVazia(arvore)) {
+    //     printf("A árvore está vazia.\n");
+    // } else {
+    //     printf("A árvore não está vazia.\n");
+    // }
 
 
 

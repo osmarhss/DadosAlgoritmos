@@ -1,18 +1,23 @@
-typedef int bool;
-#define true 1
-#define false 0
+#include <stdbool.h>
 #define alturaInicial 0
+
+// Definindo a estrutura de um nó da árvore
+struct TreeNode {
+    int data;
+    struct TreeNode* left;
+    struct TreeNode* right;
+};
 
 // Função para criar um novo nó
 struct TreeNode* createNode(int value) {
-    struct TreeNode* newNode = NULL;
+    struct TreeNode* newNode = (struct TreeNode*)malloc(sizeof(struct TreeNode));
     newNode->data = value;
     newNode->left = newNode->right = NULL;
     return newNode;
 }
 
-// função para inserir nó na arvore
-struct TreeNode* inserirNaArovre(struct TreeNode* arvore, int value){
+// Função para inserir nó na árvore
+struct TreeNode* inserirNaArovre(struct TreeNode* arvore, int value) {
     if (arvore == NULL) {
         return createNode(value);
     }
@@ -26,29 +31,29 @@ struct TreeNode* inserirNaArovre(struct TreeNode* arvore, int value){
     return arvore;
 }
 
-// // verificar árvore vazia
-// bool verificarArvoreVazia (struct TreeNode* arvore){
-//     if (arvore == NULL)
-//     {
-//         return true;
-//     }
-//     return false;    
-// }
+// verificar árvore vazia
+bool verificarArvoreVazia (struct TreeNode* arvore){
+    if (arvore == NULL)
+    {
+        return true;
+    }
+    return false;    
+}
 
-// // função para inserir nó na arvore
-// struct TreeNode* removerNo(int value,struct TreeNode* arvore){
-//     if (arvore == NULL) {
-//         return arvore;
-//     }
+// função para remover nó da arvore
+struct TreeNode* removerNo(struct TreeNode* arvore, int value){
+    if (arvore->data == value) {
+        return arvore = NULL;
+    }
 
-//     if (value < arvore->data) {
-//         arvore->left = removerNo(arvore->left, value);
-//     } else if (value > arvore->data) {
-//         arvore->right = removerNo(arvore->right, value);
-//     }
+    if (value < arvore->data) {
+        arvore->left = removerNo(arvore->left, value);
+    } else if (value > arvore->data) {
+        arvore->right = removerNo(arvore->right, value);
+    }
 
-//     return arvore = NULL;
-// }
+    return arvore;
+}
 
 // // função para pesquisar nó na arvore
 // bool pesquisaElementoExiste(struct TreeNode* arvore, int value){
